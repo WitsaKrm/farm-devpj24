@@ -1,0 +1,51 @@
+.ss {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+}
+
+.ssname {
+  font-size: medium;
+}
+
+.data {
+  font-size: larger;
+  color: #2e572a;
+}
+
+.ssimg {
+  
+  margin: 16px 16px 16px 16px;
+  height: 60px;
+  width: 60px;
+}
+.ssvalue{
+  font-size: 32px;
+}
+.updateTime {
+  font-size: 12px;
+
+}
+
+.sscontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0 16px 0;
+  padding: 24px 8px;
+  width: fit-content;
+  padding: 0 32px;
+  height: fit-content;
+  border-radius: 10px;
+  border: none;
+  background-color: #dadada;
+  color: #000000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sscontainer:hover {
+  background-color: #9e9e9e;
+  color: white;
+}

@@ -1,0 +1,25 @@
+.btn{
+margin-right: 16px;
+text-transform: uppercase
+}
+.btn.disabled {
+    color: blue;
+  }
+.btt{
+    margin: 16px 24px;
+}
+.btn:disabled {
+  /* Styles for the disabled "auto" button */
+  background-color: #ccc;
+  color: #999;
+  cursor: not-allowed; /* Show a "not allowed" cursor */
+  /* Add any other styles for the disabled button here */
+}
+.box_manual {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-bottom: 32px;
+}

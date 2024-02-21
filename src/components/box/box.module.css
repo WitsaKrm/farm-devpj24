@@ -1,0 +1,24 @@
+.box {
+  margin: 8px 0;
+  padding: 16px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(212, 212, 212);
+  width: 100%;
+  height: fit-content;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .box {
+    height: fit-content;
+  }
+}
+
+@media (max-width: 576px) {
+  .box {
+    height: fit-content;
+  }
+}

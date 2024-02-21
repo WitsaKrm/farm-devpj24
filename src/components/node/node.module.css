@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0 32px 30px;
+  padding: 16px 8px;
+  width: 250px;
+  height: 150px;
+  border-radius: 10px;
+  border: none;
+  background-color: #dadada;
+  color: #000000;
+}
+.node_container {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px; /* Adjust the margin as needed */
+}
+
+.node_img {
+  flex: 0 0 auto;
+  max-width: 80px; /* Changed max-width to a fixed value */
+  max-height: 80px; /* Changed max-height to a fixed value */
+}
+
+.nodedetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.nodename{
+  font-size: 16px;
+}
+.owner{
+  font-size: 16px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.statusnode {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  width: fit-content;
+  display: inline-block;
+  margin-top: 8px; /* Added margin to separate status from name */
+}
+
+.online {
+  background-color: #99d86f;
+  color: white;
+}
+
+.offline {
+  background-color: #e28879;
+  color: white;
+}
+
+.nodecontainer:hover {
+  background-color: #9e9e9e;
+  color: white;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+  .node {
+    flex-direction: column; /* Reverted flex-direction to column for smaller screens */
+    align-items: center; /* Center alignment for smaller screens */
+  }
+
+  .nodeimg {
+    max-width: 100%; /* Allow the image to take full width on smaller screens */
+    max-height: auto; /* Allow the image to adjust its height proportionally */
+    margin-bottom: 8px; /* Added margin to separate image from details */
+  }
+
+  .statusnode {
+    font-size: 16px;
+    padding: 8px 16px; /* Increased padding for better visibility */
+    margin: 0; /* Removed the margin for status on smaller screens */
+  }
+}

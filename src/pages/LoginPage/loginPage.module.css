@@ -1,0 +1,84 @@
+/* section {
+    background-color: #f4f9f4;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    margin: 0 3;
+    margin-top: 32px;
+  } */
+  
+  h1 {
+    color: #2e572a;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+  }
+  section .login-box{
+    margin-top: 32px;
+  }
+  .instructions {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #777;
+  }
+  
+  .valid {
+    color: green;
+    margin-left: 5px;
+  }
+  
+  .invalid {
+    color: red;
+    margin-left: 5px;
+  }
+  
+  .offscreen {
+    position: absolute;
+    left: -9999px;
+  }
+  
+  .errmsg {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .loginBtt {
+    margin-top: 3px;
+    padding: 8px 16px;
+    background-color: #2e572a;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .loginBtt:hover {
+    background-color: #1d3c1d;
+  }
+  

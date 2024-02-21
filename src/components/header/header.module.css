@@ -1,0 +1,53 @@
+.headercontainer {
+  background-color: #2e572a;
+  margin-bottom: 24px;
+  justify-content: space-between; /* This will create space between navlink and logout */
+  align-items: center; /* Vertically center the content */
+}
+
+.header {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header a {
+  color: aliceblue;
+  font-size: 20px;
+  text-decoration: none;
+}
+.headerNav {
+  display: flex;
+  align-items: center;
+}
+.navlink a {
+  margin: 0px 8px;
+  padding: 8px 16px; 
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.logoutButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-left: 16px;
+  transition: background-color 0.2s;
+}
+.logoutButton :hover {
+  background-color: #4a813c;
+  color: white; 
+}
+
+.navlink {
+  margin-right: auto; /* Push the navlink to the left as much as possible */
+}
+
+.logout {
+  margin-left: auto; /* Push the logout to the right as much as possible */
+}

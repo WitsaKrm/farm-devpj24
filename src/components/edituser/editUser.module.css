@@ -1,0 +1,83 @@
+/* Styles for the form container */
+section {
+  background-color: #f4f9f4;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+/* Styles for the form heading */
+h1 {
+  color: #2e572a;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styles for the form layout */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styles for labels */
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Styles for input fields */
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+/* Styles for instructional text */
+.instructions {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #777;
+}
+
+/* Styles for offscreen elements (for accessibility) */
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Styles for error messages */
+.errmsg {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Styles for elements that should be hidden */
+.hide {
+  display: none;
+}
+
+/* Styles for the update button */
+.updateBtt {
+  padding: 10px 20px;
+  background-color: #2e572a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px; /* Increase the margin for better spacing */
+}
+
+.updateBtt:hover {
+  background-color: #1d3c1d;
+}
+
+/* Styles for the disabled button */
+.updateBtt:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  margin-top: 20px; /* Maintain consistent spacing with the enabled button */
+}

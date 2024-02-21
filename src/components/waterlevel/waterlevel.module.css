@@ -1,0 +1,73 @@
+.ani_container {
+  padding-top: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
+  /* height: 500px; */
+}
+.date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-bottom: 8px;
+}
+.glass {
+  background: rgba(228, 225, 225, 0.5);
+  width: 300px;
+  height: 400px;
+  position: relative;
+  border-radius: 5px;
+  /* overflow: hidden; */
+  /* margin-top: 64px; */
+  position: relative;
+  align-items: center;
+}
+
+.Cmlevel {
+  bottom: 0;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.Cmlevel h3 {
+  margin: 16px;
+  text-decoration: underline;
+  color: #525252;
+}
+.water {
+  background-color: none;
+  bottom: 0;
+  height: 0;
+}
+.waterhigh {
+  background-color: rgba(45, 103, 228, 0.39);
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+  width: 300px;
+  height: 0;
+  border-radius: 5px;
+  -webkit-transition: height 1s ease-out;
+  -moz-transition: height 1s ease-out;
+  -o-transition: height 1s ease-out;
+  transition: height 0.5s ease-out;
+}
+
+.waterlow {
+  background-color: rgba(228, 45, 91, 0.39);
+  /* background-position: top right; */
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+  width: 300px;
+  height: 0;
+  border-radius: 5px;
+  -webkit-transition: height 1s ease-out;
+  -moz-transition: height 1s ease-out;
+  -o-transition: height 1s ease-out;
+  transition: height 1s ease-out;
+}

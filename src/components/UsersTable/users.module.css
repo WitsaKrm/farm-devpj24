@@ -1,0 +1,76 @@
+
+.table {
+  padding: 10px;
+}
+.row {
+  padding: 0;
+}
+th {
+  text-align: center;
+}
+.title {
+  color: #000000;
+  margin-top: 16px;
+}
+.filter{
+  width: fit-content;
+  height: 32px;
+}
+.col.wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0;
+}
+.titleColumn{
+  display: flex;
+  justify-content: flex-end;
+}
+.add_users{
+    color: rgb(62, 94, 201);
+    /* margin-right: 8px; */
+    margin-top: 8px;
+    cursor: pointer;
+}
+.exp_xcel{
+    color: rgb(220, 231, 217);
+    /* margin-right: 8px; */
+    margin-top: 8px;
+    cursor: pointer;
+
+}
+.edit{
+    color: rgb(52, 117, 35);
+    margin-right: 16px;
+    cursor: pointer;
+
+}
+.delete{
+    color: rgb(179, 17, 17);
+    margin-right: 8px;
+    cursor: pointer;
+
+}
+.more{
+    color:#000000;
+    margin-right: 8px;
+    cursor: pointer;
+
+}
+.status {
+    font-size: 50px;
+    margin: 2px 2px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 10px;
+}
+.textdanger {
+    color: #ff5b5b;
+
+}
+.textsuccess {
+    color: #10c469;
+}
+.modal{
+  margin-top: 64px;
+}

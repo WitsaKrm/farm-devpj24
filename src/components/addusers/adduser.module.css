@@ -1,0 +1,100 @@
+section {
+  background-color: #f4f9f4;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #2e572a;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+}
+select {
+  padding: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 10px 0;
+  width: 100%;
+}
+
+select option {
+  padding: 5px;
+}
+.selectrole{
+  padding:  5px 0 10px 0;
+}
+
+.selectrole .valid {
+  color: green;
+  margin-left: 5px;
+}
+
+.selectrole .invalid {
+  color: red;
+  margin-left: 5px;
+}
+.instructions {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #777;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.errmsg {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+.addBtt {
+  padding: 8px 16px;
+  background-color: #2e572a;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+.addBtt:hover {
+  background-color: #1d3c1d;
+}
+
+.addBtt:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  margin-top: 2rem;
+}
+
