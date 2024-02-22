@@ -23,3 +23,48 @@ text-transform: uppercase
   height: 100%;
   margin-bottom: 32px;
 }
+.frameMap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  margin: 16px auto;
+  height: 450px;
+}
+
+@media (max-width: 912px) {
+  .frameMap {
+    height: 400px;
+    width: 550px;
+  }
+}
+@media (max-width: 821px) {
+  .frameMap {
+    height: 400px;
+    width: 600px;
+  }
+}
+@media (max-width: 670px) {
+  .frameMap {
+    height: 350px;
+    width: 400px;
+  }
+}
+@media (max-width: 586px) {
+  .frameMap {
+    height: 400px;
+    width: 450px;
+  }
+}
+@media (max-width: 391px) {
+  .frameMap {
+    height: 250px;
+    width: 300px;
+  }
+}
+@media (max-width: 280px) {
+  .frameMap {
+    height: 200px;
+    width: 250px;
+  }
+}
