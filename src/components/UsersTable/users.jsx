@@ -12,6 +12,7 @@ import Modal from "@mui/material/Modal";
 import style from "./users.module.css";
 import PopAddUser from "../addusers/addusers";
 import PopUpdateUser from "../edituser/editUser";
+import AddDevice from "../addDevice/add-device";
 import ExportFile from "../../services/fileExport";
 import endpoint from "../../services/API/axios";
 import { FetchDevices } from "../../services/API/node.api";
@@ -62,6 +63,7 @@ const UsersPage = (props) => {
   const loading = props.loading;
   const [addOpen, setAddOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
+  const [addDevice, setAddDeviceOpen] = useState(false);
   // const [loading, setLoading] = React.useState(true);
   const [filterFirstName, setFilterFirstName] = useState("");
   const [filterLastName, setFilterLastName] = useState("");
@@ -106,6 +108,7 @@ const UsersPage = (props) => {
       <StyledTableRow>
         <StyledTableCell colSpan={8}>
           <div>
+          <div className={style.sett}>
             <i
               className={style.edit}
               title="Edit Users"
@@ -113,7 +116,7 @@ const UsersPage = (props) => {
               data-toggle="tooltip"
             >
               <i className="material-icons">edit</i>
-              <span>แก้ไขข้อมูลผู้ใช้งาน</span>
+              {/* <span>แก้ไขข้อมูลผู้ใช้งาน</span> */}
             </i>
             <i
               className={style.delete}
@@ -122,8 +125,19 @@ const UsersPage = (props) => {
               data-toggle="tooltip"
             >
               <i className="material-icons">delete</i>
-              <span>ลบผู้ใช้งาน</span>
+              {/* <span>ลบผู้ใช้งาน</span> */}
             </i>
+            <i
+              className={style.adddevice}
+              title="Add Device"
+              onClick={() => handleAddDevice(user.user_id)}
+              data-toggle="tooltip"
+            >
+              <i className="material-icons">hub</i>
+              {/* <span>เพิ่มอุปกรณ์</span> */}
+            </i>
+            </div>
+
             <h1>User ID: {user.user_id} </h1>
             <div className={`container-fluid ${style.indexPageContainer}`}>
               <div className="row">
@@ -187,6 +201,11 @@ const UsersPage = (props) => {
     setSelectedUserData(selectedUser);
     setEditOpen(true);
   };
+  const handleAddDevice= (userID) => {
+    const selectedUser = users.find((user) => user.user_id === userID);
+    setSelectedUserData(selectedUser);
+    setAddDeviceOpen(true);
+  };
   const handleDeleteUser = (userID) => {
     const selectedUser = users.find((user) => user.user_id === userID);
     console.log(selectedUser);
@@ -220,6 +239,9 @@ const UsersPage = (props) => {
   };
   const handleEditClose = () => {
     setEditOpen(false);
+  };
+  const handleAddDeviceClose = () => {
+    setAddDeviceOpen(false);
   };
   const handleAddOpen = () => {
     setAddOpen(true);
@@ -425,6 +447,11 @@ const UsersPage = (props) => {
       <Modal open={editOpen} onClose={handleEditClose}>
         <div className={style.modal}>
           <PopUpdateUser userData={selectedUserData} />
+        </div>
+      </Modal>
+      <Modal open={addDevice} onClose={handleAddDeviceClose}>
+        <div className={style.modal}>
+          <AddDevice userData={selectedUserData} />
         </div>
       </Modal>
     </>
