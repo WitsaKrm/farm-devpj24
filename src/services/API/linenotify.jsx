@@ -5,7 +5,7 @@ export async function notifyRegis(userId) {
     console.log('on notifyRegis userId: = ' ,userId);
 
     const clientId = 'PvjrBLwlp118pmtfbi8Oii';
-    const engine = 'http://localhost:9000';
+    const engine = 'https://powerful-crab-khakis.cyclic.app';
     
     const userID = userId;
 

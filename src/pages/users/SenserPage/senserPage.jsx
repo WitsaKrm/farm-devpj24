@@ -23,7 +23,7 @@ const SensersPage = () => {
   const [chartSensers, setChartSensers] = useState([]);
   const [oneChart, setOneChart] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedSensor, setSelectedSensor] = useState(false);
+  const [selectedSensor, setSelectedSensor] = useState('');
   const [showAllChart, setShowAllChart] = useState(false); // State to track "All" button click
 
   // Use useLocation to access query parameters
@@ -154,7 +154,10 @@ const SensersPage = () => {
           <div className={style.butt}>
             <div
               className={`btn btn-primary ${style.btn}`}
-              onClick={() => {setShowAllChart(true) ; setSelectedSensor('allSensors')}}
+              onClick={() => {
+                setShowAllChart(true);
+                setSelectedSensor("allSensors");
+              }}
             >
               All
             </div>
@@ -163,7 +166,9 @@ const SensersPage = () => {
                 classIcon={style.exp_xcel}
                 className="btn btn-dark"
                 excelData={chartSensers}
-                fileName={`Data_node_${nodeId}_${selectedSensor ?? 'allSensors'}`}
+                fileName={`Data_node_${nodeId}_${
+                  selectedSensor ?? "allSensors"
+                }`}
                 onClick={handleExportToExcel}
               ></ExportExcel>
             </div>

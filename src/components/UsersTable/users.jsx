@@ -189,6 +189,7 @@ const UsersPage = (props) => {
   };
   const handleDeleteUser = (userID) => {
     const selectedUser = users.find((user) => user.user_id === userID);
+    console.log(selectedUser);
     setSelectedUserData(selectedUser);
     Swal.fire({
       title: "ต้องการลบผู้ใช้นี้ ?",
@@ -201,14 +202,12 @@ const UsersPage = (props) => {
         try {
           const response = await endpoint.delete(`${USERSDEL_URL}/${userID}`);
           if (response.status === 200) {
-
             Toast.fire({
               icon: "success",
               title: "ผู้ใช้ถูกลบแล้ว !",
             }).then(
               window.location.reload()
-            )            // Swal.fire("Deleted!", "ผู้ใช้ถูกลบแล้ว", "success");
-            
+            ) 
           } else {
             Swal.fire("Error", "เกิดข้อผิดพลาดในการลบผู้ใช้", "error");
           }

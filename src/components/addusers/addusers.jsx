@@ -65,8 +65,8 @@ const AddUsers = () => {
     }
     try {
       const res = await endpoint.post(ADDUSER_URL, {
-        f_Name: nameGroup.firstName,
-        l_Name: nameGroup.lastName,
+        f_name: nameGroup.firstName,
+        l_name: nameGroup.lastName,
         username: nameGroup.userName,
         password: nameGroup.passWord,
         role: nameGroup.role,

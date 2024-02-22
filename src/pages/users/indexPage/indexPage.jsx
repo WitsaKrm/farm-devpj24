@@ -64,8 +64,8 @@ const IndexPage = () => {
         <div className={style.LineNotifyButton}>
           {user.map((u, idx) => (
             <div key={idx}>
-              {u.line_acctk !== null || "" ? (
-                <></>
+              {u.line_acctk !== null && u.line_acctk !== " " ? (
+                <>{u.line_acctk}</>
               ) : (
                 <div>
                   <LineNotifyButton src={svg.line.default} userId={uid} />

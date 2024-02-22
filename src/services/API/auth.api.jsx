@@ -1,11 +1,12 @@
 import Swal from "sweetalert2";
 import endpoint from "../../services/API/axios";
 
+
 export async function authenticate(AUTH_URL, history) {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch(`http://localhost:9000${AUTH_URL}`, {
-      // const response = await fetch(`http://172.24.163.45:9000${AUTH_URL}`, {
+      const response = await fetch(`https://powerful-crab-khakis.cyclic.app/${AUTH_URL}`, {
+
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
