@@ -20,6 +20,7 @@ const CHART_SS_URL = "/chart_ss";
 const SensersPage = () => {
   const { nodeId } = useParams();
   const [sensers, setSensers] = useState([]);
+  const [onlyDate, setDate] = useState([]);
   const [chartSensers, setChartSensers] = useState([]);
   const [oneChart, setOneChart] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +37,7 @@ const SensersPage = () => {
     const user = localStorage.getItem("UID");
     async function fetchData() {
       try {
-        await FetchSensers(setSensers, SS_URL, `${nodeId}`);
+        await FetchSensers(setSensers,setDate, SS_URL, `${nodeId}`);
         await FetchChart(setChartSensers, CHART_SS_URL, `${nodeId}`);
         setIsLoading(false);
       } catch (error) {
@@ -143,7 +144,7 @@ const SensersPage = () => {
                 nameTH={data.nameTH}
                 src={data.svg}
                 values={sensers.map((value) => value[data.key])}
-                date={sensers.map((date) => date[data.date])}
+                date={onlyDate}
                 time={sensers.map((time) => time[data.time])}
                 unit={data.unit}
                 handleSenserClick={() => handleSenserClick(data.key)}

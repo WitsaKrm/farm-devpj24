@@ -23,10 +23,13 @@ export function FetchDevicesByUid(SET,URL,ID) {
       };
       fetchNodes()
 }
-export function FetchSensers (SET,URL,ID) {
+export function FetchSensers (SET,SETDATE,URL,ID) {
     const fetchSensers = async () => {
     try {
       const res = await API.get(`${URL}/${ID}`);
+      const oDateString = res.data.senser[0].date;
+      const dateOnly = oDateString.split("T")[0];
+      SETDATE(dateOnly);
       SET(res.data.senser || []);
     } catch (error) {
       console.error("Failed to fetch senser:", error);

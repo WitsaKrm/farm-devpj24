@@ -11,9 +11,14 @@ import {
 } from "recharts";
 
 const Chart = ({ data }) => {
+  const formatDate = (dateString) => {
+    const dateObject = new Date(dateString);
+    const formattedDate = dateObject.toLocaleDateString();
+    return formattedDate;
+  };
   const formattedData = data.map((item) => ({
     ...item,
-    dateTime: `${item.date} ${item.time}`,
+    dateTime: `${formatDate(item.date)} ${item.time}`,
   }));
   return (
     <>

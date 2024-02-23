@@ -31,7 +31,7 @@ const StationPage = () => {
     async function fetchData() {
       try {
         await SetModeNewStation(setModeData, MODE_URL, `${nodeId}`);
-        await FetchMode(setModeData, MODE_URL, `${nodeId}`); // Await this promise
+        await FetchMode(setModeData, MODE_URL, `${nodeId}`);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);

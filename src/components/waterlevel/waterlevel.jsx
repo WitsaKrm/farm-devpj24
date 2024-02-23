@@ -3,7 +3,8 @@ import style from "./waterlevel.module.css";
 
 const WaterAnimation = (props) => {
   const [waterHeight, setWaterHeight] = useState(0);
-
+  const oDateString = props.data.start_date;
+  const dateOnly = oDateString.split("T")[0];
   useEffect(() => {
     const factors = [-15, -10, -5, 0, 5, 10];
     const targetHeights = [0.063, 0.28, 0.495, 0.715, 0.935, 1.157];
@@ -22,14 +23,24 @@ const WaterAnimation = (props) => {
   return (
     <>
       <div className={style.ani_container}>
-        <div className={style.date}>
-          <h5>วันที่ {props.data.start_date}, เวลา {props.data.start_time}</h5>
-        </div>
+        {props.data.st_mode === "NONE" ? (
+          <></>
+        ) : (
+          <>
+            <div className={style.date}>
+              <h5>
+                เริ่มทำงาน เมื่อ : <br></br> วันที่ {dateOnly}, เวลา{" "}
+                {props.data.start_time}
+              </h5>
+            </div>
+          </>
+        )}
         <div className={style.glass}>
           <div
             id="water"
             className={
-              props.data.current_level === null || props.data.current_level === ""
+              props.data.current_level === null ||
+              props.data.current_level === ""
                 ? style.water
                 : props.data.current_level < -5
                 ? style.waterlow
