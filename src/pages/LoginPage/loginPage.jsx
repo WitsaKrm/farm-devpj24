@@ -16,7 +16,17 @@ const LoginPage = (props) => {
   const [userPwd, setUserPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [role, SETRole] = useState("");
-
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 1000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  })
   const handleLogin = async (e) => {
     e.preventDefault();
   
@@ -57,17 +67,35 @@ const LoginPage = (props) => {
         });
       } else {
         setErrMsg(res.data.msg);
-
+        Toast.fire({
+          icon: "error",
+          title: res.data.msg,
+        })
       }
     } catch (err) {
       console.error(err);
-  
+      // Toast.fire({
+      //   icon: "error",
+      //   title: err.message,
+      // })
       if (err.response && err.response.status === 404) {
-        setErrMsg(" : ชื่อผู้ใช้ไม่ถูกต้อง");
+        // setErrMsg(" : ชื่อผู้ใช้ไม่ถูกต้อง");
+        Toast.fire({
+          icon: "error",
+          title: 'ชื่อผู้ใช้ไม่ถูกต้อง',
+        })
       } else if (err.response && err.response.status === 401) {
-        setErrMsg(" : รหัสผ่านไม่ถูกต้อง");
+        // setErrMsg(" : รหัสผ่านไม่ถูกต้อง");
+        Toast.fire({
+          icon: "error",
+          title: 'รหัสผ่านไม่ถูกต้อง',
+        })
       } else {
         setErrMsg(err.message);
+        Toast.fire({
+          icon: "error",
+          title: err.message,
+        })
       }
     }
   };
@@ -98,7 +126,7 @@ const LoginPage = (props) => {
             required
           />
 
-          {errMsg && <p className={style.errorMsg}>{errMsg}</p>}
+          {/* {errMsg && <p className={style.errorMsg}>{errMsg}</p>} */}
 
           <button className={style.loginBtt} type="submit">
             LOGIN
