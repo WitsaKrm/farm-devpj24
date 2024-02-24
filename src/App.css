@@ -40,4 +40,17 @@
       transform: rotate(360deg);
     }
   }
-  
+  .bg{
+    background-image: url("./assets/svg//Rice-Field.svg");
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    
+  }
+  .container {
+    background-color: white;
+    padding: 0;
+    
+  }
