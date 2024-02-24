@@ -12,7 +12,7 @@ function App() {
   return (
     <HelmetProvider>
       <div className="bg">
-      <div className="container" style={{ height:'100vh'}}>
+      <div className="container" >
       <Helmet>
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
