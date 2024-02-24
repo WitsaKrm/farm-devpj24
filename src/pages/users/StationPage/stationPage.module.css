@@ -34,7 +34,12 @@ text-transform: uppercase
   margin: 16px auto;
   height: 450px;
 }
-
+@media (max-width: 982px) {
+  .frameMap {
+    height: 360px;
+    width: 550px;
+  }
+}
 @media (max-width: 912px) {
   .frameMap {
     height: 400px;
