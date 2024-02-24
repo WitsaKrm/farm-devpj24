@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const Chart = ({ data }) => {
+const Chart = ({ data, senserKey }) => {
   const formatDate = (dateString) => {
     const dateObject = new Date(dateString);
     const formattedDate = dateObject.toLocaleDateString();
@@ -23,9 +23,7 @@ const Chart = ({ data }) => {
   return (
     <>
       <div className={style["chart-container"]}>
-        <div className={style.filter}>
-          
-        </div>
+        <div className={style.filter}></div>
         <div className={style.chart}></div>
         <ResponsiveContainer
           className={style["responsive-container"]}
@@ -34,7 +32,7 @@ const Chart = ({ data }) => {
         >
           <AreaChart
             width={650}
-            height={350}
+            height={400}
             data={formattedData}
             margin={{ top: 10, right: 30, left: 50, bottom: 100 }}
           >
@@ -81,7 +79,16 @@ const Chart = ({ data }) => {
               angle={-45}
               textAnchor="end"
             />
-            <YAxis domain={[-30, 100]} tickCount={10} />
+            <YAxis
+              domain={
+                senserKey === "air_temp" || senserKey === "air_humi"
+                  ? [-10, 100]
+                  : senserKey === "level"
+                  ? [-20, 20]
+                  : [-30, 100]
+              }
+              tickCount={senserKey === "level" ? 5 : 10}
+            />
             <CartesianGrid strokeDasharray="3 3" />
             <Tooltip />
             <Area
