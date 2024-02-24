@@ -152,7 +152,7 @@ const StationPage = () => {
     <>
       <AppHeader header={`STATION  ${nodeId}`} />
 
-      <div className="container">
+      <div className={style.container}>
         <div className={style.btt}>
           <button
             className={`${style.btn} btn btn-dark`}

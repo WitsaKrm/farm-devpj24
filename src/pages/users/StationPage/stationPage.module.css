@@ -15,6 +15,9 @@ text-transform: uppercase
   cursor: not-allowed; /* Show a "not allowed" cursor */
   /* Add any other styles for the disabled button here */
 }
+.container{
+  height: 150vh;
+}
 .box_manual {
   display: flex;
   flex-direction: column;
