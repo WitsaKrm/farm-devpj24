@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import endpoint from "../../services/API/axios";
 import AddUsers from "../../components/addusers/addusers";
-import { SETUIDLocal ,decodedToken} from "../../services/tkEndcoded.service";
+import { SETUIDLocal, decodedToken } from "../../services/tkEndcoded.service";
 import { getUserRole } from "../../services/Auth.service";
 const LOGIN_URL = "/login";
 const USER = "/user/username";
@@ -25,11 +25,11 @@ const LoginPage = (props) => {
     didOpen: (toast) => {
       toast.onmouseenter = Swal.stopTimer;
       toast.onmouseleave = Swal.resumeTimer;
-    }
-  })
+    },
+  });
   const handleLogin = async (e) => {
     e.preventDefault();
-  
+
     try {
       const res = await endpoint.post(LOGIN_URL, {
         username: userName,
@@ -39,7 +39,7 @@ const LoginPage = (props) => {
       if (res.data.status === "Success") {
         const user = await endpoint.get(`${USER}/${userName}`);
 
-        props?.setRole(user.data.user[0].role)
+        props?.setRole(user.data.user[0].role);
 
         const Toast = Swal.mixin({
           toast: true,
@@ -50,16 +50,15 @@ const LoginPage = (props) => {
           didOpen: (toast) => {
             toast.onmouseenter = Swal.stopTimer;
             toast.onmouseleave = Swal.resumeTimer;
-          }
-        })
+          },
+        });
         Toast.fire({
           icon: "success",
           title: "กำลังเข้าสู่ระบบ",
         }).then(() => {
-
           localStorage.setItem("token", res.data.token);
           SETUIDLocal();
-          const role = getUserRole()
+          const role = getUserRole();
 
           history.push({
             pathname: `/`,
@@ -70,7 +69,7 @@ const LoginPage = (props) => {
         Toast.fire({
           icon: "error",
           title: res.data.msg,
-        })
+        });
       }
     } catch (err) {
       console.error(err);
@@ -82,57 +81,56 @@ const LoginPage = (props) => {
         // setErrMsg(" : ชื่อผู้ใช้ไม่ถูกต้อง");
         Toast.fire({
           icon: "error",
-          title: 'ชื่อผู้ใช้ไม่ถูกต้อง',
-        })
+          title: "ชื่อผู้ใช้ไม่ถูกต้อง",
+        });
       } else if (err.response && err.response.status === 401) {
         // setErrMsg(" : รหัสผ่านไม่ถูกต้อง");
         Toast.fire({
           icon: "error",
-          title: 'รหัสผ่านไม่ถูกต้อง',
-        })
+          title: "รหัสผ่านไม่ถูกต้อง",
+        });
       } else {
         setErrMsg(err.message);
         Toast.fire({
           icon: "error",
           title: err.message,
-        })
+        });
       }
     }
   };
-  
 
   return (
     <>
-      <AppHeader header={`LoginPage : กรุณาเข้าสู่ระบบเพื่อเข้าใช้งาน`}/>
+      <AppHeader header={`LoginPage : กรุณาเข้าสู่ระบบเพื่อเข้าใช้งาน`} />
       <div className={style.loginContainer}>
-      <section>
-        <h1>Login</h1>
-        <form onSubmit={handleLogin}>
-          <label htmlFor="username">Username : </label>
-          <input
-            type="text"
-            id="login-username"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            required
-          />
+        <section>
+          <h1>Login</h1>
+          <form onSubmit={handleLogin}>
+            <label htmlFor="username">Username : </label>
+            <input
+              type="text"
+              id="login-username"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              required
+            />
 
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="login-password"
-            value={userPwd}
-            onChange={(e) => setUserPwd(e.target.value)}
-            required
-          />
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="login-password"
+              value={userPwd}
+              onChange={(e) => setUserPwd(e.target.value)}
+              required
+            />
 
-          {/* {errMsg && <p className={style.errorMsg}>{errMsg}</p>} */}
+            {/* {errMsg && <p className={style.errorMsg}>{errMsg}</p>} */}
 
-          <button className={style.loginBtt} type="submit">
-            LOGIN
-          </button>
-        </form>
-      </section>
+            <button className={style.loginBtt} type="submit">
+              LOGIN
+            </button>
+          </form>
+        </section>
       </div>
       {/* <AddUsers /> */}
     </>

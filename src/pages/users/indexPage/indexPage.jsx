@@ -9,7 +9,7 @@ import { FetchDevicesByUid } from "../../../services/API/node.api";
 import { authenticate } from "../../../services/API/auth.api";
 import svg from "../../../assets/svg/svg";
 import { GetUserById } from "../../../services/API/user.api";
-authenticate(AUTH_URL, history, "indexpage");
+
 const USER_URL = `/user/id`;
 const DEVICE_URL = `/devices`;
 const AUTH_URL = `/authen`;
@@ -20,7 +20,7 @@ const IndexPage = () => {
   const [user, setUser] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [uid, setUID] = useState(null);
-
+  authenticate(AUTH_URL, history, "indexpage");
   useEffect(() => {
     async function fetchData() {
       // authenticate(AUTH_URL, history);

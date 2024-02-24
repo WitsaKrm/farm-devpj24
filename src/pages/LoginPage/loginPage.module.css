@@ -10,6 +10,16 @@
     height: 100vh;
     
   }
+  
+
+  @media (max-width: 586px) {
+    section {
+      width: fit-content;
+    }
+  }
+
+  
+
   h1 {
     color: #2e572a;
     text-align: center;
