@@ -59,6 +59,11 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const UsersPage = (props) => {
+  const formatDate = (dateString) => {
+    const dateObject = new Date(dateString);
+    const formattedDate = dateObject.toLocaleDateString();
+    return formattedDate;
+  };
   const users = props.users;
   const loading = props.loading;
   const [addOpen, setAddOpen] = useState(false);
@@ -416,7 +421,7 @@ const UsersPage = (props) => {
                     </StyledTableCell> */}
 
                       <StyledTableCell align="center">
-                        <h6>{user.date}</h6>
+                        <h6>{formatDate(user.date)}</h6>
                       </StyledTableCell>
                       <StyledTableCell align="center">
                         <i
