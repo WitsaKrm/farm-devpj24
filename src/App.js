@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Routes from "./services/Routes/routes.service";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import './App.css'
 // import IndexPage from "./pages/users/indexPage/indexPage";
 // import LoginPage from "./pages/LoginPage/loginPage";
 // import SensersPage from "./pages/users/SenserPage/senserPage";
