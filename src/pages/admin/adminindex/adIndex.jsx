@@ -34,7 +34,7 @@ const AdminPage = () => {
     <>
       <AppHeader header={"ADMIN"} />
       <div className={style.container}>
-        <button
+        {/* <button
             className={`${style.btn} btn btn-dark`}
             onClick={toggleUsersContent}
           >
@@ -43,7 +43,8 @@ const AdminPage = () => {
         <div className={style.control}>
           {isUsersVisible && <AllUsers users={users} loading={loading}/>}
           {isUserNodeVisible && <UsersNodes user={users}/>}
-        </div>
+        </div> */}
+        <AllUsers users={users} loading={loading}/>
       </div>
     </>
   );

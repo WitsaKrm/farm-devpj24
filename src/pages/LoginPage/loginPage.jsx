@@ -76,6 +76,7 @@ const LoginPage = (props) => {
   return (
     <>
       <AppHeader header={`LoginPage : กรุณาเข้าสู่ระบบเพื่อเข้าใช้งาน`}/>
+      <div className={style.loginContainer}>
       <section>
         <h1>Login</h1>
         <form onSubmit={handleLogin}>
@@ -104,6 +105,7 @@ const LoginPage = (props) => {
           </button>
         </form>
       </section>
+      </div>
       {/* <AddUsers /> */}
     </>
   );

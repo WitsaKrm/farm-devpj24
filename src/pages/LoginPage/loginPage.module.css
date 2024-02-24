@@ -6,7 +6,10 @@
     margin: 0 3;
     margin-top: 32px;
   } */
-  
+  .loginContainer{
+    height: 100vh;
+    
+  }
   h1 {
     color: #2e572a;
     text-align: center;

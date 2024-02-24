@@ -1,3 +1,6 @@
 .control{
     margin: 32px;
 }
+.container{
+    height: 100vh;
+}
