@@ -9,7 +9,7 @@ import { FetchDevicesByUid } from "../../../services/API/node.api";
 import { authenticate } from "../../../services/API/auth.api";
 import svg from "../../../assets/svg/svg";
 import { GetUserById } from "../../../services/API/user.api";
-
+authenticate(AUTH_URL, history, "indexpage");
 const USER_URL = `/user/id`;
 const DEVICE_URL = `/devices`;
 const AUTH_URL = `/authen`;
@@ -23,7 +23,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     async function fetchData() {
-      authenticate(AUTH_URL, history);
+      // authenticate(AUTH_URL, history);
       SETUIDLocal();
       const UID = localStorage.getItem("UID");
       setUID(UID);

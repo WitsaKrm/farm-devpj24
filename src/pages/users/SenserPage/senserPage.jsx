@@ -13,18 +13,22 @@ import Chart from "../../../components/chart/chart";
 import Maps from "../../../components/maps/map";
 
 import ExportExcel from "../../../services/fileExport";
+import { authenticate } from "../../../services/API/auth.api";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const SS_URL = "/senser";
 const CHART_SS_URL = "/chart_ss";
+const AUTH_URL = "/authen";
 
 const SensersPage = () => {
   const { nodeId } = useParams();
+  const history = useHistory();
   const [sensers, setSensers] = useState([]);
   const [onlyDate, setDate] = useState([]);
   const [chartSensers, setChartSensers] = useState([]);
   const [oneChart, setOneChart] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedSensor, setSelectedSensor] = useState('');
+  const [selectedSensor, setSelectedSensor] = useState("");
   const [showAllChart, setShowAllChart] = useState(false); // State to track "All" button click
 
   // Use useLocation to access query parameters
@@ -32,12 +36,12 @@ const SensersPage = () => {
   const queryParams = new URLSearchParams(location.search);
   const lat = queryParams.get("lat");
   const lon = queryParams.get("lon");
-
+  authenticate(AUTH_URL, history, "senserpage");
   useEffect(() => {
     const user = localStorage.getItem("UID");
     async function fetchData() {
       try {
-        await FetchSensers(setSensers,setDate, SS_URL, `${nodeId}`);
+        await FetchSensers(setSensers, setDate, SS_URL, `${nodeId}`);
         await FetchChart(setChartSensers, CHART_SS_URL, `${nodeId}`);
         setIsLoading(false);
       } catch (error) {
@@ -105,24 +109,24 @@ const SensersPage = () => {
       time: "time",
       unit: "%",
     },
-    {
-      nameTH: "ความชื้นในดิน",
-      nameEN: "Soil Moisture",
-      svg: svg.soil_mois.default,
-      key: "soil_mois",
-      date: "date",
-      time: "time",
-      unit: "%",
-    },
-    {
-      nameTH: "ค่าแสง",
-      nameEN: "Light",
-      svg: svg.light.default,
-      key: "light",
-      date: "date",
-      time: "time",
-      unit: "lux",
-    },
+    // {
+    //   nameTH: "ความชื้นในดิน",
+    //   nameEN: "Soil Moisture",
+    //   svg: svg.soil_mois.default,
+    //   key: "soil_mois",
+    //   date: "date",
+    //   time: "time",
+    //   unit: "%",
+    // },
+    // {
+    //   nameTH: "ค่าแสง",
+    //   nameEN: "Light",
+    //   svg: svg.light.default,
+    //   key: "light",
+    //   date: "date",
+    //   time: "time",
+    //   unit: "lux",
+    // },
   ];
 
   return (
@@ -136,7 +140,7 @@ const SensersPage = () => {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-        <div className="row">
+        <div className={style.row}>
           {mockData.map((data, index) => (
             <div className="col-lg-3 col-md-4 col-sm-6" key={index}>
               <SenSersBox
