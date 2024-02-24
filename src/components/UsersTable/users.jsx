@@ -213,7 +213,7 @@ const UsersPage = (props) => {
   };
   const handleDeleteUser = (userID) => {
     const selectedUser = users.find((user) => user.user_id === userID);
-    console.log(selectedUser);
+    // console.log(selectedUser);
     setSelectedUserData(selectedUser);
     Swal.fire({
       title: "ต้องการลบผู้ใช้นี้ ?",

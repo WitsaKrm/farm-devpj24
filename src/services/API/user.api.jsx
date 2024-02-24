@@ -43,7 +43,7 @@ export function APIdeleteUser (USERS_URL, userID, selectedUser){
   useEffect(() => {
     const DeleteUser = async () => {
       if(userID === selectedUser.user_id){
-        console.log(userID , selectedUser.user_id);
+        // console.log(userID , selectedUser.user_id);
         // try {
         //   const res = await endpoint.delete(USERS_URL);
   
@@ -61,7 +61,7 @@ export function APIdeleteUser (USERS_URL, userID, selectedUser){
 export function GetUserById(SET, USER_URL, ID) {
   // useEffect(()=>{
     const fetchUser = async () => {
-      console.log("fetchUser");
+      // console.log("fetchUser");
       try {
         const res = await endpoint.get(`${USER_URL}/${ID}`);
         SET(res.data.users);

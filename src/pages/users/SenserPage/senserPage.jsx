@@ -65,10 +65,10 @@ const SensersPage = () => {
       );
 
       if (selectedSensorData.length > 0) {
-        console.log(
-          `Data_node_${nodeId}_${selectedSensor}`,
-          selectedSensorData
-        );
+        // console.log(
+        //   `Data_node_${nodeId}_${selectedSensor}`,
+        //   selectedSensorData
+        // );
       } else {
         console.log("No data found for the selected sensor.");
       }

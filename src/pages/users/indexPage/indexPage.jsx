@@ -47,7 +47,7 @@ const IndexPage = () => {
     const encodedLat = encodeURIComponent(lat);
     const encodedLon = encodeURIComponent(lon);
     const encodedLatLon = `lat=${encodedLat}&lon=${encodedLon}`;
-    console.log(encodedType);
+    // console.log(encodedType);
     const enURL = `/${encodedType}/${encodedUserId}${encodedNodeId}?${encodedLatLon}`;
 
     history.push(enURL);

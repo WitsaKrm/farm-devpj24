@@ -25,7 +25,7 @@ const AddDevice = ({ userData }) => {
   const [error, setError] = useState(null);
 
   const errRef = useRef(); // Assuming you need this ref
-console.log('123456');
+// console.log('123456');
   const handleSubmit = async (e) => {
     e.preventDefault();
 

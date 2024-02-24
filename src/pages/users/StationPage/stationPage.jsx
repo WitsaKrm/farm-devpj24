@@ -127,7 +127,7 @@ const StationPage = () => {
         `${MODE_URL}/${modeData.devices_node_id}`,
         dataGroup
       );
-      console.log(response);
+      // console.log(response);
       if (response.status === 200) {
         setSucc(true);
         setTimeout(() => {
