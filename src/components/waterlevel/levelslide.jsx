@@ -39,10 +39,16 @@ const marks = [
 ];
 
 const Wlevel = (props) => {
+  console.log(props);
   const { data, handleMode } = props;
+  const [oldValue, oldValueValue] = useState(
+    parseInt(data.current_level, 10)
+  );
   const [sliderValue, setSliderValue] = useState(
     parseInt(data.current_level, 10)
   );
+  console.log("OLD ",parseInt(oldValue));
+  console.log("NEW ",sliderValue);
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -61,12 +67,7 @@ const Wlevel = (props) => {
   const handleSetValue = (e) => {
     e.preventDefault();
     if (sliderValue !== undefined) {
-      if (sliderValue < 0) {
-        Toast.fire({
-          icon: "error",
-          title: "ไม่สามารถลดระดับใต้พื้นดินได้ !",
-        }).then(window.location.reload());
-      } else {
+       if(oldValue < sliderValue){
         const dataGroup = {
           pump_st: "ON",
           current_level: data.current_level,
@@ -74,8 +75,20 @@ const Wlevel = (props) => {
           st_mode: "MANUAL",
           devices_node_id: data.devices_node_id,
         };
-        handleMode(dataGroup);
+        handleMode(dataGroup).then( Toast.fire({
+          icon: "success",
+          title: "กำลังส่งการตั้งค่า !",
+        }));
+      }else if (sliderValue < 0) {
+        Toast.fire({
+          icon: "error",
+          title: "ไม่สามารถลดระดับใต้พื้นดินได้ !",
+        })
+        // .then(window.location.reload());
       }
+      // if(oldValue < sliderValue){
+
+      // }
     }
   };
   const handleCancel = (e) => {

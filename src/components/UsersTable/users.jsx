@@ -155,6 +155,7 @@ const UsersPage = (props) => {
                             name={station.d_name.toUpperCase()}
                             src={svg.station.default}
                             status={station.status.toString()}
+                            owner = {user.username}
                             // handleNodeClick={() =>
                             //   handleNodeClick(
                             //     station.user_id,
@@ -180,6 +181,7 @@ const UsersPage = (props) => {
                             name={node.d_name.toUpperCase()}
                             src={svg.node.default}
                             status={node.status.toString()}
+                            owner = {user.username}
                             // handleNodeClick={() =>
                             //   handleNodeClick(
                             //     node.user_id,
