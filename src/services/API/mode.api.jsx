@@ -24,6 +24,29 @@ export function FetchMode (SET,URL,ID) {
 };
 fetchMode()
 }
+export function FetchUser (SET,URL,ID) {
+  const fetchMode = async () => {
+  try {
+    const res = await API.get(`${URL}/${ID}`);
+    SET(res.data.users[0]);
+  } catch (error) {
+    console.error("Failed to fetch senser:", error);
+  }
+};
+fetchMode()
+}
+export function FetchDevice (SET,URL,ID) {
+  const fetchMode = async () => {
+  try {
+    const res = await API.get(`${URL}/${ID}`);
+    SET(res.data.station[0]);
+  } catch (error) {
+    console.error("Failed to fetch senser:", error);
+  }
+};
+fetchMode()
+}
+
 
 export function SetMode (SET,URL,ID,newLevel,currentLevel) {
   const setMode = async () => {

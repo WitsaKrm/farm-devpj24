@@ -41,13 +41,6 @@ const IndexPage = () => {
     fetchData();
   }, [history]);
   const handleNodeClick = (userId, type, nodeId, lat, lon) => {
-    // const encodedUserId = encodeURIComponent(userId);
-    // const encodedNodeId = encodeURIComponent(nodeId);
-    // const encodedType = encodeURIComponent(type);
-    // const encodedLat = encodeURIComponent(lat);
-    // const encodedLon = encodeURIComponent(lon);
-    // const encodedLatLon = `lat=${encodedLat}&lon=${encodedLon}`;
-    // console.log(encodedType);
     const enURL = `/${type}/${userId}${nodeId}?lat=${lat}&lon=${lon}`;
 
     history.push(enURL);

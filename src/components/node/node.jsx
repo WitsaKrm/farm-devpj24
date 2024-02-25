@@ -34,7 +34,7 @@ Node.propTypes = {
   name: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
-  owner: PropTypes.string.isRequired,
+  // owner: PropTypes.string.isRequired,
   handleNodeClick: PropTypes.func.isRequired,
 };
 

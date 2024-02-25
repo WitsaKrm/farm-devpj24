@@ -89,7 +89,9 @@ const UsersPage = (props) => {
       setIsLoading(false);
     }
   };
-
+const handleNodeClick = () =>{
+  console.log('noting at all');
+}
   const handleAbout = (userID) => {
     setExpandedUserId((prevUserId) => (prevUserId === userID ? null : userID));
   };
@@ -109,6 +111,7 @@ const UsersPage = (props) => {
       };
       fetchData();
     }, [ URL, user, hasFetched]);
+    
     return (
       <StyledTableRow>
         <StyledTableCell colSpan={8}>
@@ -156,15 +159,15 @@ const UsersPage = (props) => {
                             src={svg.station.default}
                             status={station.status.toString()}
                             owner = {user.username}
-                            // handleNodeClick={() =>
-                            //   handleNodeClick(
-                            //     station.user_id,
-                            //     "station",
-                            //     station.d_id,
-                            //     station.lat,
-                            //     station.lon
-                            //   )
-                            // }
+                            handleNodeClick={() =>
+                              handleNodeClick(
+                                // station.user_id,
+                                // "station",
+                                // station.d_id,
+                                // station.lat,
+                                // station.lon
+                              )
+                            }
                           />
                         </div>
                       </div>
@@ -182,15 +185,15 @@ const UsersPage = (props) => {
                             src={svg.node.default}
                             status={node.status.toString()}
                             owner = {user.username}
-                            // handleNodeClick={() =>
-                            //   handleNodeClick(
-                            //     node.user_id,
-                            //     node.type === "station" ? "station" : "senser",
-                            //     node.d_id,
-                            //     node.lat,
-                            //     node.lon
-                            //   )
-                            // }
+                            handleNodeClick={() =>
+                              handleNodeClick(
+                                // node.user_id,
+                                // node.type === "station" ? "station" : "senser",
+                                // node.d_id,
+                                // node.lat,
+                                // node.lon
+                              )
+                            }
                           />
                         </div>
                       </div>

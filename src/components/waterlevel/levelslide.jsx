@@ -39,7 +39,7 @@ const marks = [
 ];
 
 const Wlevel = (props) => {
-  console.log(props);
+
   const { data, handleMode } = props;
   const [oldValue, oldValueValue] = useState(
     parseInt(data.current_level, 10)
@@ -47,8 +47,8 @@ const Wlevel = (props) => {
   const [sliderValue, setSliderValue] = useState(
     parseInt(data.current_level, 10)
   );
-  console.log("OLD ",parseInt(oldValue));
-  console.log("NEW ",sliderValue);
+  // console.log("OLD ",parseInt(oldValue));
+  // console.log("NEW ",sliderValue);
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",

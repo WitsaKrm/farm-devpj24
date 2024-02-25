@@ -7,17 +7,27 @@ import { useParams, useLocation } from "react-router-dom";
 import WaterLevel from "../../../components/waterlevel/waterlevel";
 import LevelSlide from "../../../components/waterlevel/levelslide";
 import Maps from "../../../components/maps/map";
-import { FetchMode, SetModeNewStation } from "../../../services/API/mode.api";
+import {
+  FetchMode,
+  SetModeNewStation,
+  FetchUser,
+  FetchDevice,
+} from "../../../services/API/mode.api";
 import endpoint from "../../../services/API/axios";
 import { authenticate } from "../../../services/API/auth.api";
 
 const MODE_URL = "/mode";
 const AUTH_URL = "/authen";
+const USER_URL = "/user/id";
+const DEVICED_URL = "/devices/did";
+const NOTIFY = "/line/notify/";
 
-const StationPage = () => {
+const StationPage = (props) => {
   const { nodeId } = useParams();
   const history = useHistory();
   const [modeData, setModeData] = useState([]);
+  const [userData, setUsersData] = useState([]);
+  const [station, setStation] = useState([]);
   const [isAutoVisible, setIsAutoVisible] = useState(false);
   const [isManualVisible, setIsManualVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -30,10 +40,13 @@ const StationPage = () => {
   const lon = queryParams.get("lon");
   authenticate(AUTH_URL, history, "stationpage");
   useEffect(() => {
+    const username = localStorage.getItem("UID");
     async function fetchData() {
       try {
         await SetModeNewStation(setModeData, MODE_URL, `${nodeId}`);
         await FetchMode(setModeData, MODE_URL, `${nodeId}`);
+        await FetchUser(setUsersData, USER_URL, username);
+        await FetchDevice(setStation, DEVICED_URL, `${nodeId}`);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -42,7 +55,20 @@ const StationPage = () => {
     }
     fetchData();
   }, [nodeId]);
-
+  // const stopNotify = {
+  //   username: `${userData.username}`,
+  //   d_name: `${station.d_name}`,
+  //   message: "Pump OFF",
+  //   status: "StopButton pushed",
+  //   token: `${userData.line_acctk}`,
+  // };
+  // const startNotify = {
+  //   username: userData.username,
+  //   d_name: station.d_name,
+  //   message: "Pump ON",
+  //   status: "Processing...",
+  //   token: userData.line_acctk,
+  // };
   const handleStart = (e) => {
     e.preventDefault();
     const dataGroup = {
@@ -64,6 +90,44 @@ const StationPage = () => {
       devices_node_id: modeData.devices_node_id,
     };
     handleMode(dataGroup);
+  };
+  const handleMode = async (dataGroup) => {
+    try {
+      console.log(dataGroup.pump_st);
+      // console.log(sentNotify);
+      const response = await endpoint.put(
+        `${MODE_URL}/${modeData.devices_node_id}`,
+        dataGroup
+      );
+      if (response.status === 200) {
+        await endpoint.post(
+          `${NOTIFY}`,
+          dataGroup.pump_st === "ON"
+            ? {
+                username: userData.username,
+                d_name: station.d_name,
+                message: "Pump ON",
+                status: "Processing",
+                token: userData.line_acctk,
+              }
+            : {
+                username: `${userData.username}`,
+                d_name: `${station.d_name}`,
+                message: "Pump OFF",
+                status: "StopButton pushed",
+                token: `${userData.line_acctk}`,
+              }
+        );
+        setSucc(true);
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
+      } else {
+        setError("Error updating Mode: " + response.statusText);
+      }
+    } catch (error) {
+      setError("Error updating Mode: " + error.message);
+    }
   };
   const toggleManual = () => {
     setIsManualVisible(!isManualVisible);
@@ -114,34 +178,20 @@ const StationPage = () => {
       </div>
     </>
   );
-  const manualContent = (modeData) => (
+  const manualContent = (modeData, userData) => (
     <>
       <h1>MANUAL</h1>
       <div className={style.box_manual}>
         <WaterLevel data={modeData} maxWaterHeight={300}></WaterLevel>
-        <LevelSlide data={modeData} handleMode={handleMode}></LevelSlide>
+        <LevelSlide
+          data={modeData}
+          handleMode={handleMode}
+          userData={userData}
+        ></LevelSlide>
       </div>
     </>
   );
-  const handleMode = async (dataGroup) => {
-    try {
-      const response = await endpoint.put(
-        `${MODE_URL}/${modeData.devices_node_id}`,
-        dataGroup
-      );
-      // console.log(response);
-      if (response.status === 200) {
-        setSucc(true);
-        setTimeout(() => {
-          window.location.reload();
-        }, 500);
-      } else {
-        setError("Error updating Mode: " + response.statusText);
-      }
-    } catch (error) {
-      setError("Error updating Mode: " + error.message);
-    }
-  };
+
   const handleAutoClick = () => {
     setIsAutoVisible(true);
     setIsManualVisible(false);
