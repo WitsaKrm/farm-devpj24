@@ -40,7 +40,6 @@ const IndexPage = () => {
     }
     fetchData();
   }, [history]);
-
   const handleNodeClick = (userId, type, nodeId, lat, lon) => {
     // const encodedUserId = encodeURIComponent(userId);
     // const encodedNodeId = encodeURIComponent(nodeId);
@@ -94,7 +93,9 @@ const IndexPage = () => {
                           station.lat,
                           station.lon
                         )
+                        
                       }
+                      owner={user[0].username}
                     />
                   </div>
                 </div>
@@ -120,6 +121,7 @@ const IndexPage = () => {
                           node.lon
                         )
                       }
+                      owner={user[0].username}
                     />
                   </div>
                 </div>

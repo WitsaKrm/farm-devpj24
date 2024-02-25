@@ -5,3 +5,14 @@
 .indexPageContainer{
     height: 100vh;
 }
+.owner{
+    font-size: 16px;
+    background-color: #99d86f;
+    color: white;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    width: fit-content;
+    display: inline-block;
+    margin-top: 8px; 
+  }

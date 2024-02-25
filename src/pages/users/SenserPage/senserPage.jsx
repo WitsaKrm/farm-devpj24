@@ -80,7 +80,6 @@ const SensersPage = () => {
       console.log("Please select a sensor before exporting.");
     }
   };
-
   const mockData = [
     {
       nameTH: "ระดับน้ำ",
