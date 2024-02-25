@@ -3,6 +3,7 @@ import { createRoot } from "react-dom";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
+import Swal from "sweetalert2";
 import Stack from "@mui/material/Stack";
 import style from "./levelslide.module.css";
 
@@ -42,7 +43,17 @@ const Wlevel = (props) => {
   const [sliderValue, setSliderValue] = useState(
     parseInt(data.current_level, 10)
   );
-
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 1000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
   const handleSliderChange = (event, newValue) => {
     setSliderValue(newValue);
   };
@@ -50,14 +61,21 @@ const Wlevel = (props) => {
   const handleSetValue = (e) => {
     e.preventDefault();
     if (sliderValue !== undefined) {
-      const dataGroup = {
-        pump_st: "ON",
-        current_level: data.current_level,
-        go_level: sliderValue,
-        st_mode: "MANUAL",
-        devices_node_id: data.devices_node_id,
-      };
-      handleMode(dataGroup);
+      if (sliderValue < 0) {
+        Toast.fire({
+          icon: "error",
+          title: "ไม่สามารถลดระดับใต้พื้นดินได้ !",
+        }).then(window.location.reload());
+      } else {
+        const dataGroup = {
+          pump_st: "ON",
+          current_level: data.current_level,
+          go_level: sliderValue,
+          st_mode: "MANUAL",
+          devices_node_id: data.devices_node_id,
+        };
+        handleMode(dataGroup);
+      }
     }
   };
   const handleCancel = (e) => {

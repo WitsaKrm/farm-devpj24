@@ -21,6 +21,7 @@ const IndexPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [uid, setUID] = useState(null);
   authenticate(AUTH_URL, history, "indexpage");
+
   useEffect(() => {
     async function fetchData() {
       // authenticate(AUTH_URL, history);
@@ -41,14 +42,14 @@ const IndexPage = () => {
   }, [history]);
 
   const handleNodeClick = (userId, type, nodeId, lat, lon) => {
-    const encodedUserId = encodeURIComponent(userId);
-    const encodedNodeId = encodeURIComponent(nodeId);
-    const encodedType = encodeURIComponent(type);
-    const encodedLat = encodeURIComponent(lat);
-    const encodedLon = encodeURIComponent(lon);
-    const encodedLatLon = `lat=${encodedLat}&lon=${encodedLon}`;
+    // const encodedUserId = encodeURIComponent(userId);
+    // const encodedNodeId = encodeURIComponent(nodeId);
+    // const encodedType = encodeURIComponent(type);
+    // const encodedLat = encodeURIComponent(lat);
+    // const encodedLon = encodeURIComponent(lon);
+    // const encodedLatLon = `lat=${encodedLat}&lon=${encodedLon}`;
     // console.log(encodedType);
-    const enURL = `/${encodedType}/${encodedUserId}${encodedNodeId}?${encodedLatLon}`;
+    const enURL = `/${type}/${userId}${nodeId}?lat=${lat}&lon=${lon}`;
 
     history.push(enURL);
   };
@@ -65,7 +66,8 @@ const IndexPage = () => {
           {user.map((u, idx) => (
             <div key={idx}>
               {u.line_acctk !== null && u.line_acctk !== " " ? (
-                <>{u.line_acctk}</>
+                // <>{u.line_acctk}</> 
+                ""
               ) : (
                 <div>
                   <LineNotifyButton src={svg.line.default} userId={uid} />
