@@ -32,7 +32,7 @@
 .nodename{
   font-size: 16px;
 }
-.owner{
+/* .owner{
   font-size: 16px;
   background-color: #99d86f;
   color: white;
@@ -41,7 +41,7 @@
   width: fit-content;
   display: inline-block;
   margin-top: 8px; 
-}
+} */
 .details {
   display: flex;
   flex-direction: column;

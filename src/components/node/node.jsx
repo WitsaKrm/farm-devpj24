@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import style from "./node.module.css";
 
 const Node = (props) => {
-  // const statusClass = props.status === "1" ? style.online : style.offline;
+  const statusClass = props.status === "1" ? style.online : style.offline;
 
   return (
     <>
@@ -18,9 +18,9 @@ const Node = (props) => {
           <div className={style.nodedetails}>
             <div className={style.details}>
               <span className={style.nodename}>{props.name}</span>
-              {/* <span className={`${style.statusnode} ${statusClass}`}>
+              <span className={`${style.statusnode} ${statusClass}`}>
                 <span>{props.status === "1" ? "Online" : "Offline"}</span>
-              </span> */}
+              </span>
               <div className={style.owner}>{props.owner}</div>
             </div>
           </div>

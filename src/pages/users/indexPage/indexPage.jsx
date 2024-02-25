@@ -95,7 +95,7 @@ const IndexPage = () => {
                         )
                         
                       }
-                      owner={user[0].username}
+                      // owner={user[0].username}
                     />
                   </div>
                 </div>
@@ -121,7 +121,7 @@ const IndexPage = () => {
                           node.lon
                         )
                       }
-                      owner={user[0].username}
+                      // owner={user[0].username}
                     />
                   </div>
                 </div>
