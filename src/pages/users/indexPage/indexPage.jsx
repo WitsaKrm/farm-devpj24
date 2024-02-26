@@ -52,7 +52,7 @@ const IndexPage = () => {
 
   return (
     <>
-      <AppHeader header="ComputerEng PROJECT" />
+      <AppHeader header="ComputerEngPJ" />
       <div className={`container-fluid ${style.indexPageContainer}`}>
         <div className={style.LineNotifyButton}>
           {user.map((u, idx) => (

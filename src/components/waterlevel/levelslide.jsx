@@ -47,7 +47,7 @@ const Wlevel = (props) => {
   const [sliderValue, setSliderValue] = useState(
     parseInt(data.current_level, 10)
   );
-  // console.log("OLD ",parseInt(oldValue));
+  // console.log("OLD ",oldValue);
   // console.log("NEW ",sliderValue);
   const Toast = Swal.mixin({
     toast: true,
@@ -67,7 +67,7 @@ const Wlevel = (props) => {
   const handleSetValue = (e) => {
     e.preventDefault();
     if (sliderValue !== undefined) {
-       if(oldValue < sliderValue){
+       if(oldValue <= sliderValue || oldValue > sliderValue){
         const dataGroup = {
           pump_st: "ON",
           current_level: data.current_level,
@@ -79,7 +79,10 @@ const Wlevel = (props) => {
           icon: "success",
           title: "กำลังส่งการตั้งค่า !",
         }));
-      }else if (sliderValue < 0) {
+      }
+      // else if(oldValue > sliderValue){
+      // }
+      else if (sliderValue < 0) {
         Toast.fire({
           icon: "error",
           title: "ไม่สามารถลดระดับใต้พื้นดินได้ !",
